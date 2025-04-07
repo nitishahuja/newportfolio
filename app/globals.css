@@ -1,0 +1,368 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Modern, clean color palette */
+    --background: 210 50% 98%; /* Crisp light background */
+    --foreground: 220 25% 20%; /* Deep readable text */
+
+    --card: 0 0% 100%; /* Pure white cards */
+    --card-foreground: 220 25% 20%; /* Consistent text */
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 25% 20%;
+
+    /* Primary: Deep blue - professional and trustworthy */
+    --primary: 215 90% 50%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary: Slate gray - subtle and elegant */
+    --secondary: 215 25% 95%;
+    --secondary-foreground: 215 35% 25%;
+
+    /* Muted: Refined gray tones */
+    --muted: 210 20% 92%;
+    --muted-foreground: 215 25% 40%;
+
+    /* Accent: Vibrant but tasteful purple */
+    --accent: 250 95% 60%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive: Clear red */
+    --destructive: 0 85% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 20% 85%;
+    --input: 215 25% 90%;
+    --ring: 215 90% 50%;
+
+    --radius: 0.5rem;
+
+    /* Modern neon palette for highlights and effects */
+    --neon-blue: 215 90% 55%;
+    --neon-purple: 250 95% 65%;
+    --neon-teal: 180 90% 45%;
+    --neon-navy: 230 80% 40%;
+  }
+
+  .dark {
+    /* Dark mode: Deeper, richer tones */
+    --background: 220 30% 10%;
+    --foreground: 210 40% 98%;
+
+    --card: 220 25% 15%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 220 25% 15%;
+    --popover-foreground: 210 40% 98%;
+
+    /* Primary: Brighter blue for dark mode */
+    --primary: 215 90% 60%;
+    --primary-foreground: 210 40% 98%;
+
+    /* Secondary: Dark slate with good contrast */
+    --secondary: 215 30% 20%;
+    --secondary-foreground: 210 40% 98%;
+
+    /* Muted: Deep, subtle gray */
+    --muted: 215 30% 22%;
+    --muted-foreground: 210 20% 70%;
+
+    /* Accent: Vibrant purple that pops on dark backgrounds */
+    --accent: 250 95% 65%;
+    --accent-foreground: 0 0% 100%;
+
+    /* Destructive: Bright, warning red */
+    --destructive: 0 85% 65%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 215 25% 25%;
+    --input: 215 25% 25%;
+    --ring: 215 90% 60%;
+
+    /* Neon colors for dark mode - brighter for contrast */
+    --neon-blue: 215 90% 65%;
+    --neon-purple: 250 95% 75%;
+    --neon-teal: 180 90% 55%;
+    --neon-navy: 230 80% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground transition-colors duration-300;
+  }
+}
+
+/* Refined neon text effects with better glow */
+.neon-text-blue {
+  @apply text-[hsl(var(--neon-blue))];
+  text-shadow: 0 0 8px hsla(var(--neon-blue), 0.5),
+    0 0 15px hsla(var(--neon-blue), 0.3);
+}
+
+.neon-text-purple {
+  @apply text-[hsl(var(--neon-purple))];
+  text-shadow: 0 0 8px hsla(var(--neon-purple), 0.5),
+    0 0 15px hsla(var(--neon-purple), 0.3);
+}
+
+.neon-text-teal {
+  @apply text-[hsl(var(--neon-teal))];
+  text-shadow: 0 0 8px hsla(var(--neon-teal), 0.5),
+    0 0 15px hsla(var(--neon-teal), 0.3);
+}
+
+.neon-text-navy {
+  @apply text-[hsl(var(--neon-navy))];
+  text-shadow: 0 0 8px hsla(var(--neon-navy), 0.5),
+    0 0 15px hsla(var(--neon-navy), 0.3);
+}
+
+/* Refined neon borders with layered glow */
+.neon-border-blue {
+  @apply border-[hsl(var(--neon-blue))];
+  box-shadow: 0 0 5px hsla(var(--neon-blue), 0.4),
+    0 0 10px hsla(var(--neon-blue), 0.2);
+}
+
+.neon-border-purple {
+  @apply border-[hsl(var(--neon-purple))];
+  box-shadow: 0 0 5px hsla(var(--neon-purple), 0.4),
+    0 0 10px hsla(var(--neon-purple), 0.2);
+}
+
+.neon-border-teal {
+  @apply border-[hsl(var(--neon-teal))];
+  box-shadow: 0 0 5px hsla(var(--neon-teal), 0.4),
+    0 0 10px hsla(var(--neon-teal), 0.2);
+}
+
+.neon-border-navy {
+  @apply border-[hsl(var(--neon-navy))];
+  box-shadow: 0 0 5px hsla(var(--neon-navy), 0.4),
+    0 0 10px hsla(var(--neon-navy), 0.2);
+}
+
+/* Refined animations */
+@keyframes pulse {
+  0%,
+  100% {
+    opacity: 0.6;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.03);
+  }
+}
+
+@keyframes flow {
+  0% {
+    stroke-dashoffset: 1000;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes glow {
+  0%,
+  100% {
+    opacity: 0.7;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+.animate-flow {
+  animation: flow 3s linear infinite;
+}
+
+.animate-pulse-slow {
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.animate-float {
+  animation: float 5s ease-in-out infinite;
+}
+
+.animate-glow {
+  animation: glow 2.5s ease-in-out infinite;
+}
+
+/* Clean scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  @apply bg-secondary/30;
+}
+
+::-webkit-scrollbar-thumb {
+  @apply bg-primary/70 rounded-full;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  @apply bg-primary/90;
+}
+
+/* Subtle background grid */
+.bg-grid {
+  background-size: 40px 40px;
+  background-image: linear-gradient(
+      to right,
+      rgba(var(--foreground-rgb), 0.03) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      rgba(var(--foreground-rgb), 0.03) 1px,
+      transparent 1px
+    );
+}
+
+/* Refined card hover effects */
+.card-hover {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1),
+    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Updated gradient text - more professional */
+.gradient-text {
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: linear-gradient(
+    135deg,
+    hsl(var(--primary)) 0%,
+    hsl(var(--neon-navy)) 50%,
+    hsl(var(--neon-purple)) 100%
+  );
+}
+
+/* Refined glowing dots */
+.glowing-dot {
+  position: absolute;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(var(--dot-color), 0.7) 0%,
+    rgba(var(--dot-color), 0) 70%
+  );
+  opacity: 0.5;
+  z-index: -1;
+}
+
+/* Refined navbar */
+.navbar {
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  @apply border-b border-border/40 bg-background/80;
+}
+
+.nav-link {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  @apply bg-primary;
+  transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
+}
+
+/* Section styles */
+.section {
+  scroll-margin-top: 80px;
+}
+
+/* Form input focus styles - cleaner outline */
+.form-input-focus {
+  @apply focus-visible:ring-2 focus-visible:ring-primary/80 focus-visible:ring-offset-1 focus-visible:ring-offset-background focus-visible:outline-none;
+}
+
+/* Theme transition */
+.theme-transition {
+  @apply transition-colors duration-300;
+}
+
+/* Card styles - more refined */
+.card-glass {
+  @apply bg-card/90 backdrop-blur-md border border-border/50 shadow-sm hover:shadow-md transition-shadow duration-300 dark:shadow-primary/5;
+}
+
+/* Button hover effect - smoother and more subtle */
+.btn-hover-effect {
+  @apply relative overflow-hidden transition-all duration-300;
+}
+
+.btn-hover-effect::before {
+  content: "";
+  @apply absolute inset-0 bg-primary/10 scale-x-0 origin-left transition-transform duration-300;
+}
+
+.btn-hover-effect:hover::before {
+  @apply scale-x-100;
+}
+
+/* Skill bar animation */
+@keyframes fillBar {
+  from {
+    width: 0;
+  }
+  to {
+    width: var(--bar-width);
+  }
+}
+
+.skill-bar-fill {
+  animation: fillBar 1s cubic-bezier(0.26, 0.86, 0.44, 0.98) forwards;
+}
+
+/* Cursor animation for typing effect */
+@keyframes blink {
+  from,
+  to {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
+
+.cursor-blink {
+  animation: blink 1s step-end infinite;
+}
