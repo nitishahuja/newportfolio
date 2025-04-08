@@ -125,16 +125,6 @@ const projects: Project[] = [
 
 export default function ProjectsSection() {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [activeFilter, setActiveFilter] = useState<string>("all");
-
-  const uniqueTechnologies = Array.from(
-    new Set(projects.flatMap((project) => project.skills))
-  ).sort();
-
-  const filteredProjects =
-    activeFilter === "all"
-      ? projects
-      : projects.filter((project) => project.skills.includes(activeFilter));
 
   return (
     <div className="w-full max-w-6xl mx-auto">
@@ -155,38 +145,9 @@ export default function ProjectsSection() {
         </p>
       </motion.div>
 
-      {/* Technology filter */}
-      <div className="mb-8">
-        <div className="flex flex-wrap justify-center gap-2 mb-6">
-          <Badge
-            className={`cursor-pointer text-sm py-1.5 px-3 ${
-              activeFilter === "all"
-                ? "bg-primary text-primary-foreground"
-                : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-            }`}
-            onClick={() => setActiveFilter("all")}
-          >
-            All Projects
-          </Badge>
-          {uniqueTechnologies.map((tech) => (
-            <Badge
-              key={tech}
-              className={`cursor-pointer text-sm py-1.5 px-3 ${
-                activeFilter === tech
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-secondary text-secondary-foreground hover:bg-secondary/80"
-              }`}
-              onClick={() => setActiveFilter(tech)}
-            >
-              {tech}
-            </Badge>
-          ))}
-        </div>
-      </div>
-
       {/* Projects grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {filteredProjects.map((project, index) => (
+        {projects.map((project, index) => (
           <motion.div
             key={project.id}
             initial={{ opacity: 0, y: 20 }}
