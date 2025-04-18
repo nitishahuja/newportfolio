@@ -87,7 +87,7 @@ const experiences: Experience[] = [
     title: "Full Stack Product Engineer",
     company: "Elev8 Solar",
     location: "India",
-    duration: "May 2022 – June 2023",
+    duration: "May 2020 – June 2021",
     description: [
       "Drove $50K+ in first-year revenue by launching a renewable energy startup, managing a 6-member team, and implementing data-driven customer acquisition strategies for scalable solar solutions.",
       "Reduced onboarding & project setup time by 40% (from ~5 days to 3 days) by integrating Python, Azure Logic Apps, and Azure DevOps Pipelines with Terraform, automating workflows from consultation to deployment-ready proposals.",
